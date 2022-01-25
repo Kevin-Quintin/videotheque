@@ -47,4 +47,13 @@ class RoleRepository extends ServiceEntityRepository
         ;
     }
     */
+    // // Find movie by id in details page
+    // public function findByMovies($movieId)
+    // {
+    //     return $this->createQueryBuilder('r')
+    //         ->andWhere('r.id = figurent.id = movie.id')
+    //         ->setParameter('movieId', $movieId)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

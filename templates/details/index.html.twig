@@ -8,36 +8,40 @@
     <main class="container mt-4">
         <div class="row">
             <div class="col-sm-5 mt-4">
-                <img src="" alt="poster du film" class="w-100">
-                {# {{ movie.image }} #}
+                <img src="/assets/affiches-film/{{ movie.image }}" alt="poster du film" class="w-100 h-100">
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-7" style="margin-top: 100px">
                 <div class="row mt-4 mb-2 ms-3 h1">
-                    Titre
-                    {# {{ movie.name }} #}
+                    {{ movie.name }}
                 </div>
                 <div class="row mb-4 ms-3 small">
-                    Réalisateur, figurants...
-                    {# {{ movie.role.values }} ?? #}
+                {% for figurent in movie.figurents %}
+                    {# Réalisé par {{ figurent.lastname }} #}
+                    {% if figurent.roles.values[0].name == "réalisateur" %}
+                    <br>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }}
+                    {% endif %}
+                    {% if figurent.roles.values[0].name == "acteur" %}
+                        {{ figurent.firstname }} {{ figurent.lastname }},
+                    {% endif %}
+                {% endfor %}
                 </div>
-                <div class="row mb-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, rerum non, voluptatum laborum inventore excepturi vitae sit dolorum iste rem quam molestias similique! Ex voluptatibus asperiores maiores saepe, illum minima quidem eligendi laboriosam ad sit molestias qui placeat veniam nihil sunt voluptatem dolor ducimus hic praesentium suscipit est assumenda ipsum.
-                    {# {{ movie.description }} #}
+                <div class="row mb-4 mx-auto">
+                    {{ movie.description }}
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-5 my-4">
-                duration...
-                {# {{ movie.duration }} #}
-                cost...
-                {# {{ movie.cost }} #}
-                date de sortie...
-                {# {{ movie.created_at }} #}
-                likes...
-                {# {{ movie.nb_like }} #}
-                pays d'origine...
-                {# {{ movie.origin_country }} #}
+                <div class="row">
+                    <div class="col-sm-6">
+                        Durée: {{ movie.duration }} minutes<br>
+                        Budget: ${{ movie.cost }} million
+                    </div>
+                    <div class="col-sm-6">
+                        Nombre de likes (iMDB): {{ movie.nbLike }}k<br>
+                        Origine: {{ movie.originCountry }}
+                    </div>
+                </div>
             </div>
         </div>
     </main>
