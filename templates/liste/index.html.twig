@@ -9,8 +9,7 @@
 {% for movie in movies %}
 
 <div class="col-sm-3 my-3 g-4">
-    <a href="">
-    {# {{ path('details/{id}') }} #}
+    <a href="details/{{ movie.id }}">
         <img src="assets/affiches-film/{{ movie.image }}" alt="affiche de film" class="h-100 w-100">
     </a>
 </div>
