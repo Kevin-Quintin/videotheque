@@ -48,6 +48,7 @@ class MovieRepository extends ServiceEntityRepository
     }
     */
 
+    // Find movie by id in details page
     public function findById(int $id)
     {
         return $this->createQueryBuilder('m')
