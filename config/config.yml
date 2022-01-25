@@ -1,0 +1,7 @@
+# app/config/config.yml
+
+csa_guzzle:
+  clients:
+    weather:
+      config:
+        base_uri: http://api.openweathermap.org
