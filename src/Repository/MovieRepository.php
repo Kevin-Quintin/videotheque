@@ -56,4 +56,24 @@ class MovieRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+    // Find/search movies by title/content
+    public function findMoviesByName(string $name)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb
+            ->where(
+                $qb->expr()->andX(
+                    $qb->expr()->orX(
+                        $qb->expr()->like('p.title', ':name'),
+                        $qb->expr()->like('p.content', ':name'),
+                    ),
+                    $qb->expr()->isNotNull('p.created_at')
+                )
+            )
+            ->setParameter(':name', '%' . $name . '%');
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 }
