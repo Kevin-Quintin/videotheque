@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
-{# {% for movie in movies %}
 {% block title %}{{ movie.name }}{% endblock %}
-{% endfor %} #}
 
 {% block body %}
 
@@ -11,35 +9,41 @@
                 <img src="/assets/affiches-film/{{ movie.image }}" alt="poster du film" class="w-100 h-100">
             </div>
             <div class="col-lg-7" style="margin-top: 100px">
-                <div class="row mt-4 mb-2 ms-3 h1">
-                    {{ movie.name }}
-                </div>
-                <div class="row mb-4 ms-3 small">
-                {% for figurent in movie.figurents %}
-                    {# Réalisé par {{ figurent.lastname }} #}
-                    {% if figurent.roles.values[0].name == "réalisateur" %}
-                    <br>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }}
-                    {% endif %}
-                    {% if figurent.roles.values[0].name == "acteur" %}
-                        {{ figurent.firstname }} {{ figurent.lastname }},
-                    {% endif %}
-                {% endfor %}
-                </div>
-                <div class="row mb-4 mx-auto">
-                    {{ movie.description }}
+                <div class="card card-rounded opacity-50"  style="background-color: #F8F0FB">
+                    <div class="card-body">
+                        <div class="row mt-4 mb-2 ms-3 h1">
+                            {{ movie.name }}
+                        </div>
+                        <div class="row mb-4 ms-3 small">
+                            {% for figurent in movie.figurents %}
+                            {% if figurent.roles.values[0].name == "réalisateur" %}
+                            <br>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }}
+                            {% endif %}
+                            {% if figurent.roles.values[0].name == "acteur" %}
+                            {{ figurent.firstname }} {{ figurent.lastname }},
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="row mb-4 mx-auto">
+                            {{ movie.description }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-5 my-4">
-                <div class="row">
-                    <div class="col-lg-6">
-                        Durée: {{ movie.duration }} minutes<br>
-                        Budget: ${{ movie.cost }} million
-                    </div>
-                    <div class="col-lg-6">
-                        Nombre de likes (iMDB): {{ movie.nbLike }}k<br>
-                        Origine: {{ movie.originCountry }}
+                <div class="card card-rounded" style="width: 480px; background-color: #F8F0FB;">
+                    <div class="card-body"><div class="row">
+                        <div class="col-lg-6">
+                            Durée: {{ movie.duration }} minutes<br>
+                            Budget: ${{ movie.cost }} million
+                        </div>
+                        <div class="col-lg-6">
+                            Nombre de likes (iMDB): {{ movie.nbLike }}k<br>
+                            Origine: {{ movie.originCountry }}
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
