@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('email')
-            
+
             ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -44,7 +44,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            
+
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -60,8 +60,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('codePostal', TextType::class)
             ->add('city', TextType::class)
-            ->add('dateBirth', DateType::class)
-        ;
+            ->add('dateBirth', DateType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
