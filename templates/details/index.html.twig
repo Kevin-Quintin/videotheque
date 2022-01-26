@@ -17,12 +17,18 @@
                         <div class="row mb-4 ms-3 small">
                             {% for figurent in movie.figurents %}
                             {% if figurent.roles.values[0].name == "réalisateur" %}
-                            <br>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }}
+                            <p>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }} </p>
+                            {% elseif figurent.roles.values[1].name|default == "réalisateur" %}
+                            <p>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }} </p>
                             {% endif %}
+                            {% endfor %}
+                            <p>
+                            {% for figurent in movie.figurents %}
                             {% if figurent.roles.values[0].name == "acteur" %}
                             {{ figurent.firstname }} {{ figurent.lastname }},
                             {% endif %}
                             {% endfor %}
+                            </p>
                         </div>
                         <div class="row mb-4 mx-auto">
                             {{ movie.description }}
