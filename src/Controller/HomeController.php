@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\CallApiService;
 
+
 class HomeController extends AbstractController
 {
     /**
