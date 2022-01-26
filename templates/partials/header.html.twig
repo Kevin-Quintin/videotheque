@@ -21,6 +21,11 @@
 				<li class="nav-item">
 					<a class="nav-link" href="./login">Connexion</a>
 				</li>
+				{% if app.user.roles[0] == "admin"%}
+				<li class="nav-item">
+					<a class="nav-link" href="/admin">Dashboard</a>
+				</li>
+				{% endif %}
 
 			</ul>
 			<form class="d-flex">
