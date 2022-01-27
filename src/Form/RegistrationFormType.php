@@ -15,15 +15,41 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('email', EmailType::class)
+            ->add('firstname', TextType::class, [
+                'constraints' => [
+                    new Regex([
+                        'pattern' => "/^[a-zA-Z-' ]*$/",
+                        'match' => false,
+                        'message' => 'Votre prénom ne peut pas contenir de caractères spéciaux'
+                    ])
+                ]
+            ])
+            ->add('lastname', TextType::class, [
+                'constraints' => [
+                    new Regex([
+                        'pattern' => "/^[a-zA-Z-' ]*$/",
+                        'match' => false,
+                        'message' => 'Votre nom ne peut pas contenir de caractères spéciaux'
+                    ])
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'constraints' => [
+                    new Regex([
+                        'pattern' => "FILTER_VALIDATE_EMAIL",
+                        'match' => false,
+                        'message' => 'Votre email ne peut pas contenir de caractères spéciaux'
+                    ])
+                ]
+            ])
             ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
