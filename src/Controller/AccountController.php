@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,7 +40,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET", "POST"})
+     * @Route("/{id}/edit", name="account_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
@@ -52,9 +53,10 @@ class AccountController extends AbstractController
             return $this->redirectToRoute('account', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('account/edit.html.twig', [
+
+        return $this->render('account/edit.html.twig', [
             'user' => $user,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 }

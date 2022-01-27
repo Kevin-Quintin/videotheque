@@ -10,7 +10,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-6 ">
 				<div class="card position-flex">
-					<h3 class="card-header">
+					<h3 class="card-header bg-bleu text-white">
 						Bienvenue
 						{{app.user.firstname}}
 						{{app.user.lastname}}
@@ -98,6 +98,7 @@
 							<p class="h5 col-md card-text ps-2 py-0 m-0">
 								*******
 							</p>
+							<a href="{{ path('account_edit', {'id': app.user.id}) }}">edit</a>
 						</div>
 					</p>
 				</div>
@@ -109,7 +110,7 @@
 
 		<div class="col-md-2">
 			<div class="dropdown">
-				<button class="btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+				<button class="btn-lg btn-secondary dropdown-toggle bg-rouge" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
 					Playlist
 				</button>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
