@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "111d46f700cb05329b118d71cde32e90",
+    "content-hash": "74aa606caca7d06be1bae84f1b6d0407",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -8062,6 +8062,100 @@
                 }
             ],
             "time": "2022-01-03T21:15:37+00:00"
+        },
+        {
+            "name": "weblabel/data-transformer",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/weblabel-tech/data-transformer.git",
+                "reference": "72491711f740e95c17a18b156747e6f3bd579b28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/weblabel-tech/data-transformer/zipball/72491711f740e95c17a18b156747e6f3bd579b28",
+                "reference": "72491711f740e95c17a18b156747e6f3bd579b28",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "phpstan/phpstan": "^0.12.99",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Weblabel\\DataTransformer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Kowalski",
+                    "email": "adam.kowalski@weblabel.pl"
+                }
+            ],
+            "description": "This library provides object-oriented interface for decoding string formats (e.g. JSON) into an array",
+            "support": {
+                "issues": "https://github.com/weblabel-tech/data-transformer/issues",
+                "source": "https://github.com/weblabel-tech/data-transformer/tree/v1.0.3"
+            },
+            "time": "2021-12-08T21:29:43+00:00"
+        },
+        {
+            "name": "weblabel/data-transformer-bundle",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/weblabel-tech/WeblabelDataTransformerBundle.git",
+                "reference": "61c7e595679180f023dd570b690adde620c213e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/weblabel-tech/WeblabelDataTransformerBundle/zipball/61c7e595679180f023dd570b690adde620c213e7",
+                "reference": "61c7e595679180f023dd570b690adde620c213e7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4",
+                "symfony/framework-bundle": "^5.4",
+                "weblabel/data-transformer": "^1.0.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.3",
+                "phpstan/phpstan": "^0.12.99",
+                "phpstan/phpstan-symfony": "^0.12.44",
+                "symfony/phpunit-bridge": "^5.4"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Weblabel\\DataTransformerBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Kowalski",
+                    "email": "adam.kowalski@weblabel.pl"
+                }
+            ],
+            "description": "This bundle integrates data-transformer library with Symfony framework",
+            "support": {
+                "issues": "https://github.com/weblabel-tech/WeblabelDataTransformerBundle/issues",
+                "source": "https://github.com/weblabel-tech/WeblabelDataTransformerBundle/tree/v1.0.2"
+            },
+            "time": "2021-12-08T22:22:25+00:00"
         },
         {
             "name": "webmozart/assert",

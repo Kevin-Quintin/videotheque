@@ -343,4 +343,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->lastname;
+        // return $this->firstname;
+        // return $this->phone;
+        // return $this->address;
+        // return $this->complement;
+        // return $this->codePostal;
+        // return $this->city;
+        // return $this->dateBirth;
+        // return $this->createdAt;
+        // return $this->isVerified;
+        // return $this->password;
+        // return $this->lastname;
+        // return $this->roles;
+        // return $this->id;
+    }
 }

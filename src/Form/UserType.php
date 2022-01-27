@@ -5,12 +5,16 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+//use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
+//use App\Form\StringToArrayTransformer;
 
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        //$transformer = new DataTransformerInterface();
         $builder
             ->add('email')
             ->add('roles')
@@ -24,8 +28,8 @@ class UserType extends AbstractType
             ->add('city')
             ->add('dateBirth')
             ->add('createdAt')
-            ->add('isVerified')
-        ;
+            ->add('isVerified');
+        // ->transform($transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -622,6 +622,12 @@
     "twig/twig": {
         "version": "v3.3.7"
     },
+    "weblabel/data-transformer": {
+        "version": "v1.0.3"
+    },
+    "weblabel/data-transformer-bundle": {
+        "version": "v1.0.2"
+    },
     "webmozart/assert": {
         "version": "1.10.0"
     }
