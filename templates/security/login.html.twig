@@ -6,49 +6,39 @@
 {% block body %}
 	<div class="container my-5 p-5 d-flex justify-content-center">
 		<div class="card" style="width: 50rem; height: 35rem;">
-			<div class="card-header">Log in!</div>
+			<div class="card-header bg-bleu text-white h2">Log in!</div>
 			<div class="card-body">
 				<form method="post">
 					{% if error %}
 						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 					{% if app.user %}
-						<div class="mb-3">
+						<div class=" h3 mb-3">
 							You are logged in as
 							{{ app.user.username }},
 							<a href="{{ path('app_logout') }}">Logout</a>
 						</div>
 					{% endif %}
-					<h1 class="h3 m-5 font-weight-normal">Please log in</h1>
-					<label for="inputEmail">Email</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-5" autocomplete="email" required autofocus>
-					<label for="inputPassword">Password</label>
-					<input type="password" name="password" id="inputPassword" class="form-control mb-5" autocomplete="current-password" required>
+					<h1 class="h2 my-2 ps-3 pb-3 font-weight-normal">Please log in</h1>
+					<label for="inputEmail" class="h3 font-weight-bold">Email</label>
+					<input type="email " value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-5 h3 ms-3 " autocomplete="email" required autofocus>
+					<label for="inputPassword" class="h3 font-weight-bold">Password</label>
+					<input type="password" name="password" id="inputPassword" class="form-control h3 mb-5 mx-3 " autocomplete="current-password" required>
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"></div>
-				<div
-					class="card-footer d-flex justify-content-around">
-					{#
-					                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-					                    See https://symfony.com/doc/current/security/remember_me.html
-					
-					                    <div class="checkbox mb-3">
-					                        <label>
-					                            <input type="checkbox" name="_remember_me"> Remember me
-					                        </label>
-					                    </div>
-					                #}
-					<div class="my-5">
-						<button class="btn btn-lg btn-primary" type="submit">
+				<div class="card-footer d-flex justify-content-around bg-bleu">
+
+					<div class="my-4">
+						<button class="btn btn-lg btn-primary bg-rouge border-white text-white" type="submit">
 							Log in
 						</button>
 					</div>
-					<div class="d-flex align-items-center">
+					<div class="d-flex align-items-center text-white">
 						Haven't an account ?
-						<a href="{{path('app_register')}}">Sign in</a>
+						<a href="{{path('app_register')}}" class="text-white">Sign in</a>
 					</div>
-					<div class="d-flex align-items-center">
+					<div class="d-flex align-items-center text-white">
 						Forgot password ?
-						<a href="{{path('app_forgot_password_request')}}">Reset password</a>
+						<a href="{{path('app_forgot_password_request')}}" class="text-white">Reset password</a>
 					</div>
 				</div>
 			</div>
