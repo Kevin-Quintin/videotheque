@@ -19,19 +19,24 @@
 
 	<div class="example-wrapper">
 		<h1>Hello Kevin! ✅</h1>
+			
+				{{ dump(data) }}
 
-		This friendly message is coming from:
-		<ul>
-			<li>Your controller at
-				<code>
-					<a href="{{ 'C:/wamp64/www/Videotheque/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a>
-				</code>
-			</li>
-			<li>Your template at
-				<code>
-					<a href="{{ 'C:/wamp64/www/Videotheque/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a>
-				</code>
-			</li>
-		</ul>
+				{# {% for tab in data %}
+					<p>{{tab.original_title}}</p>
+				{% endfor %} #}
+				
+				
+				<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+				  Dropdown button
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				  <li><a class="dropdown-item" href="#">Action</a></li>
+				  <li><a class="dropdown-item" href="#">Another action</a></li>
+				  <li><a class="dropdown-item" href="#">Something else here</a></li>
+				</ul>
+			  </div>
 	</div>
+	{# {{dump(app.user.roles)}} #}
 {% endblock %}

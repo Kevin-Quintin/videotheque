@@ -15,10 +15,9 @@ class HomeController extends AbstractController
     public function index(CallApiService $CallApiService): Response
     {
 
-
         //dd($CallApiService->getMovieData());
         return $this->render('home/index.html.twig', [
-            'data' => $CallApiService->getMovieData(),
+            'data' => $CallApiService->getPopularMovieData(),
         ]);
     }
 }

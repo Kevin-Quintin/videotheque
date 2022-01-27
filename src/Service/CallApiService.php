@@ -1,52 +1,38 @@
 <?php
-
 namespace App\Service;
-
-// use DateTime;
 
 use ArrayObject;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
-
-
+use App\Entity\Movie;
+use App\Repository\MovieRepository;
 
 class CallApiService
 {
-    // private $client;
-
-    // public function __construct(HttpClientInterface $client)
-    // {
-    //     $this->client = $client;
-    // }
-
-
     private $client;
+    private $data = [];
+    private $tabId = [];
 
     public function __construct(HttpClientInterface $client)
     {
         $this->client = $client;
     }
 
-    public function getMovieData(): array
+    public function getPopularMovieData():array
     {
-        $response = array();
-        // $store = array();
-        for ($i = 550; $i <= 550; $i++) {
-
-            $request = $this->client->request(
+            $req = $this->client->request(
                 'GET',
-                'https://api.themoviedb.org/3/movie/' . $i . '?api_key=fd2277fadcdef9e7250232718c7527c1'
+                'https://api.themoviedb.org/3/movie/popular?api_key=fd2277fadcdef9e7250232718c7527c1'
             );
-            $request->toArray();
-            //dd($request);
-            // $store = array_merge($store, $request);
-            // //$response1 = $request->toArray();
-            // var_dump($store);
-            Array_push($response, $request);
-        }
-        //dd($response);
-
-
-        return  $response;
-        // return $this->getApi('FranceLiveGlobalData');
+            $data = $req->toArray();
+            foreach ($data['results'] as $data) {
+                array_push($this->data, $data);
+            }
+            // Je stocke dans ma variable popularMovie mon tableau de liste de vidéo populaire
+            $popularMovie = $this->data;
+            foreach ($popularMovie as $id) {
+                array_push($this->tabId, $id['id']);
+            }
+            $listIdPopularMovie = $this->tabId;
+            dd($popularMovie);
     }
 }
