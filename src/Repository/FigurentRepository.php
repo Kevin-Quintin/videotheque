@@ -47,4 +47,14 @@ class FigurentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // // Find movie by id in details page
+    // public function findAllByValue($value): ?Figurent
+    // {
+    //     return $this->createQueryBuilder('f')
+    //         ->andWhere('f.movie = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

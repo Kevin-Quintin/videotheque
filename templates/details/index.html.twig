@@ -1,43 +1,62 @@
 {% extends 'base.html.twig' %}
-{# {% for movie in movies %}
 {% block title %}{{ movie.name }}{% endblock %}
-{% endfor %} #}
 
 {% block body %}
 
     <main class="container mt-4">
         <div class="row">
-            <div class="col-sm-5 mt-4">
-                <img src="" alt="poster du film" class="w-100">
-                {# {{ movie.image }} #}
+            <div class="col-lg-5 mt-4">
+                <img src="/assets/affiches-film/{{ movie.image }}" alt="poster du film" class="w-100 h-100 rounded">
             </div>
-            <div class="col-sm-7">
-                <div class="row mt-4 mb-2 ms-3 h1">
-                    Titre
-                    {# {{ movie.name }} #}
+            <div class="col-lg-7" style="margin-top: 100px">
+                <div class="card card-rounded opacity-50"  style="background-color: #F8F0FB">
+                    <div class="card-body">
+                        <div class="row mt-4 mb-2 ms-3 h1">
+                            {{ movie.name }}
+                        </div>
+                        <div class="row mb-4 ms-3 small">
+                            {% for figurent in movie.figurents %}
+                            {% if figurent.roles.values[0].name == "réalisateur" %}
+                            <p>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }} </p>
+                            {% elseif figurent.roles.values[1].name|default == "réalisateur" %}
+                            <p>Réalisé par {{ figurent.firstname }} {{ figurent.lastname }} </p>
+                            {% endif %}
+                            {% endfor %}
+                            <p>
+                            {% for figurent in movie.figurents %}
+                            {% if figurent.roles.values[0].name == "acteur" %}
+                            {{ figurent.firstname }} {{ figurent.lastname }},
+                            {% endif %}
+                            {% endfor %}
+                            </p>
+                        </div>
+                        <div class="row mb-4 mx-auto">
+                            {{ movie.description }}
+                        </div>
+                    </div>
                 </div>
-                <div class="row mb-4 ms-3 small">
-                    Réalisateur, figurants...
-                    {# {{ movie.role.values }} ?? #}
-                </div>
-                <div class="row mb-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, rerum non, voluptatum laborum inventore excepturi vitae sit dolorum iste rem quam molestias similique! Ex voluptatibus asperiores maiores saepe, illum minima quidem eligendi laboriosam ad sit molestias qui placeat veniam nihil sunt voluptatem dolor ducimus hic praesentium suscipit est assumenda ipsum.
-                    {# {{ movie.description }} #}
+                <div class="text-center">
+                    <a type="button" href="#" class="btn rounded rounded-pill mt-3" style="background-color: #253C78 !important; color: white;">
+                        Ajouter à la wishlist
+                    </a>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-5 my-4">
-                duration...
-                {# {{ movie.duration }} #}
-                cost...
-                {# {{ movie.cost }} #}
-                date de sortie...
-                {# {{ movie.created_at }} #}
-                likes...
-                {# {{ movie.nb_like }} #}
-                pays d'origine...
-                {# {{ movie.origin_country }} #}
+            <div class="col-lg-5 my-4">
+                <div class="card card-rounded" style="width: 480px; background-color: #F8F0FB;">
+                    <div class="card-body"><div class="row">
+                        <div class="col-lg-6">
+                            Durée: {{ movie.duration }} minutes<br>
+                            Budget: ${{ movie.cost }} million
+                        </div>
+                        <div class="col-lg-6">
+                            Nombre de likes (iMDB): {{ movie.nbLike }}k<br>
+                            Origine: {{ movie.originCountry }}
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

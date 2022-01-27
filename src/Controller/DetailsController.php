@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\MovieRepository;
+use App\Repository\RoleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,14 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class DetailsController extends AbstractController
 {
     /**
-     * @Route("/details", name="details")
+     * @Route("/details/{id}", name="details")
      */
-    // ADD ID TO ROUTE AND INDEX
-    public function index(MovieRepository $movieRepository): Response
+    public function index(MovieRepository $movieRepository, $id): Response
     {
-        // $movies = $movieRepository->findyId($id);
+        $movie = $movieRepository->findById($id);
         return $this->render('details/index.html.twig', [
-            'movies' => $movieRepository->findAll(),
+            'movie' => $movie,
         ]);
     }
 }

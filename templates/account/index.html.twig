@@ -4,129 +4,112 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container-fluid p-0 m-0 ">
+	<div class="container-fluid p-0 m-5 ">
 		<div class="row mb-5">
-			{{dump(app.user)}}
 			<div class="col-md-1"></div>
 			<div class="col-md-6 ">
-				<div class="card position-flex">
-					<h3 class="card-header bg-bleu text-white">
-						Bienvenue
-						{{app.user.firstname}}
-						{{app.user.lastname}}
-					</h3>
-					<div class="card-body">
-						<p class=" h4 card-text">
-							<u>Vos informations :</u>
+				<<<<<<<HEAD<divclass="cardposition-flex"><h3class="card-headerbg-bleutext-white">Bienvenue{{app.user.firstname}}{{app.user.lastname}}=======<divclass="cardposition-flex"style="height:40rem;"><h3class="card-header">Bienvenue{{app.user.firstname}}{{app.user.lastname}}>>>>>>> 935eebfc6afa587a887ff21dfb382618173ddc65
+			</h3>
+			<div class="card-body">
+				<p class=" h4 card-text">
+					<u>Vos informations :</u>
+				</p>
+				<div class="row mb-1">
+					<div class="col-md-6">
+						<p class="h5 col-md card-text fw-bold p-0 m-auto ">
+							Nom :
 						</p>
-						<div class="row mb-1">
-							<div class="col-md-6">
-								<p class="h5 col-md card-text fw-bold p-0 m-auto ">
-									Nom :
-								</p>
-								<p class="h5 col-md card-text ps-4 pt-1 m-0">
-									{{app.user.lastname}}
-								</p>
-							</div>
-
-
-							<div class="col-md-6">
-								<p class="h5  col-md card-text fw-bold p-0 m-auto ">
-									Prénom :
-								</p>
-								<p class="h5 col-md card-text ps-4 pt-1 m-0">
-									{{app.user.firstname}}
-								</p>
-							</div>
-						</div>
-						<div class="">
-							<p class="h5 col-md card-text fw-bold p-0 m-auto ">
-								Date de naissance :
-							</p>
-							<p class="h5 col-md card-text ps-4 pt-1 m-0">
-								{{app.user.dateBirth|format_datetime('short', 'none', locale='fr')}}
-							</p>
-						</div>
-
-						<div class="row mt-1">
-							<div class="col-md-6">
-								<p class="h5 col-md card-text fw-bold p-0 m-auto ">
-									Téléphone :
-								</p>
-								<p class="h5 col-md card-text ps-4 pt-1 m-0">
-									{{app.user.phone}}
-								</p>
-							</div>
-
-							<div class="col-md-6">
-								<p class="h5 col-md card-text fw-bold p-0 m-auto ">
-									E-mail :
-								</p>
-								<p class="h5 col-md card-text ps-4 pt-1 m-0">
-									{{app.user.email}}
-								</p>
-							</div>
-						</div>
-
-						<div class="row mt-4">
-							<p class="h5 col-md card-text fw-bold ps-2 m-auto ">
-								Votre adresse :
-							</p>
-							<div class="row  my-1">
-								<div class="col-md-6">
-									<p class="h5  col-md card-text ps-4 pt-1 mx-auto">{{app.user.address}}</p>
-									<p class="h5  col-md card-text ps-4 pt-1 mx-auto">{{app.user.complement}}</p>
-								</div>
-								<div class="col-md-6">
-									<p class="h5  col-md card-text ps-4 pt-1 m-0">
-										{{app.user.codePostal}}
-									</p>
-									<p class="h5 col-md card-text ps-4 pt-1 m-0">
-										{{app.user.city}}
-									</p>
-								</div>
-
-							</div>
-
-						</div>
-
-
-						<div class="mt-3">
-							<p class="h5 col-md card-text fw-bold p-0 m-auto ">
-								Mot de passe :
-							</p>
-							<p class="h5 col-md card-text ps-2 py-0 m-0">
-								*******
-							</p>
-							<a href="{{ path('account_edit', {'id': app.user.id}) }}">edit</a>
-						</div>
+						<p class="h5 col-md card-text ps-4 pt-1 m-0">
+							{{app.user.lastname}}
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p class="h5  col-md card-text fw-bold p-0 m-auto ">
+							Prénom :
+						</p>
+						<p class="h5 col-md card-text ps-4 pt-1 m-0">
+							{{app.user.firstname}}
+						</p>
+					</div>
+				</div>
+				<div class="">
+					<p class="h5 col-md card-text fw-bold p-0 m-auto ">
+						Date de naissance :
+					</p>
+					<p class="h5 col-md card-text ps-4 pt-1 m-0">
+						{{app.user.dateBirth|format_datetime('short', 'none', locale='fr')}}
 					</p>
 				</div>
-
+				<div class="row mt-1">
+					<div class="col-md-6">
+						<p class="h5 col-md card-text fw-bold p-0 m-auto ">
+							Téléphone :
+						</p>
+						<p class="h5 col-md card-text ps-4 pt-1 m-0">
+							{{app.user.phone}}
+						</p>
+					</div>
+					<div class="col-md-6">
+						<p class="h5 col-md card-text fw-bold p-0 m-auto ">
+							E-mail :
+						</p>
+						<p class="h5 col-md card-text ps-4 pt-1 m-0">
+							{{app.user.email}}
+						</p>
+					</div>
+				</div>
+				<div class="row mt-4">
+					<p class="h5 col-md card-text fw-bold ps-2 m-auto ">
+						Votre adresse :
+					</p>
+					<div class="row  my-1">
+						<div class="col-md-6">
+							<p class="h5  col-md card-text ps-4 pt-1 mx-auto">{{app.user.address}}</p>
+							<p class="h5  col-md card-text ps-4 pt-1 mx-auto">{{app.user.complement}}</p>
+						</div>
+						<div class="col-md-6">
+							<p class="h5  col-md card-text ps-4 pt-1 m-0">
+								{{app.user.codePostal}}
+							</p>
+							<p class="h5 col-md card-text ps-4 pt-1 m-0">
+								{{app.user.city}}
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="mt-3">
+					<p class="h5 col-md card-text fw-bold p-0 m-auto ">
+						Mot de passe :
+					</p>
+					<p class="h5 col-md card-text ps-2 py-0 m-0">
+						*******
+					</p>
+					<a href="{{ path('account_edit', {'id': app.user.id}) }}">edit</a>
+				</div>
 			</div>
-		</div>
-
-		<div class="col-md-2"></div>
-
-		<div class="col-md-2">
-			<div class="dropdown">
-				<button class="btn-lg btn-secondary dropdown-toggle bg-rouge" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-					Playlist
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					{% for wish in whishlist %}
-						{% if wish.user.id == app.user.id %}
-							<li>
-								<a class="dropdown-item" href="#">{{ wish.name}}</a>
-							</li>
-						{% endif %}
-					{% endfor %}
-
-				</ul>
+			<div class="card-footer d-flex justify-content-center">
+				<a class="btn btn-primary" href="">Any change ?</a>
 			</div>
-
-
 		</div>
 	</div>
-	<div class="col-md-1"></div>
-</div>{% endblock %}
+</div>
+
+<div class="col-md-2"></div>
+
+<div class="col-md-2">
+	<div class="dropdown">
+		<button class="btn-lg btn-secondary dropdown-toggle bg-rouge" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+			Playlist
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+			{% for wish in whishlist %}
+				{% if wish.user.id == app.user.id %}
+					<li>
+						<a class="dropdown-item" href="#">{{ wish.name}}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+		</ul>
+	</div>
+</div></div>{% endblock %}
