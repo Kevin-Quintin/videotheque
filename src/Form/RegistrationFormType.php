@@ -23,19 +23,15 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstname', TextType::class, [
-                'constraints' => [
-                    new Regex([
-                        'pattern' => "/^[a-zA-Z-' ]*$/",
-                        'match' => false,
-                        'message' => 'Votre prénom ne peut pas contenir de caractères spéciaux'
-                    ])
-                ]
-            ])
+            ->addPropertyConstraint('firstName', new Assert\Regex([
+                'pattern' => '/\d/',
+                'match' => false,
+                'message' => 'Your name cannot contain a number',
+            ]))
             ->add('lastname', TextType::class, [
                 'constraints' => [
                     new Regex([
-                        'pattern' => "/^[a-zA-Z-' ]*$/",
+                        'pattern' => '/^[a-z]+$/i',
                         'match' => false,
                         'message' => 'Votre nom ne peut pas contenir de caractères spéciaux'
                     ])
