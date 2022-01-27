@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-bleu m-0">
 	<div class="container-fluid">
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav  mt-0 me-auto mb-2 mb-lg-0 ">
+		<div class="collapse navbar-collapse " id="navbarSupportedContent">
+			<ul class="navbar-nav  mt-0 me-auto  mb-2 mb-lg-0 ">
 				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="{{path('home')}}">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewbox="0 0 16 16">
@@ -11,26 +11,26 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{path('liste')}}">Liste des films</a>
+					<a class="nav-link text-white" href="{{path('liste')}}">Liste des films</a>
 				</li>
 				{% if app.user %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('account')}}">My account</a>
+						<a class="nav-link text-white" href="{{path('account')}}">My account</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+						<a class="nav-link text-white" href="{{path('app_logout')}}">Logout</a>
 					</li>
 					{% if app.user.roles[0] == "admin" %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('admin')}}">Dashboard</a>
+							<a class="nav-link text-white" href="{{path('admin')}}">Dashboard</a>
 						</li>
 					{% endif %}
 				{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('app_register')}}">Nouveau compte</a>
+						<a class="nav-link text-white" href="{{path('app_register')}}">Nouveau compte</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+					<li class="nav-item text-white">
+						<a class="nav-link text-white" href="{{path('app_login')}}">Connexion</a>
 					</li>
 				{% endif %}
 			</ul>
