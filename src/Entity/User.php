@@ -46,11 +46,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *  pattern="/[a-zA-Z]/",
+     *  match=false,
+     *  message="Your firstname cannot contain a number"
+     * )
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  @Assert\Regex(
+     *  pattern="/[a-zA-Z]/",
+     *  match=false,
+     *  message="Your lastname cannot contain a number"
+     * )
      */
     private $lastname;
 
