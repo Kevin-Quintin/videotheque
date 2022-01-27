@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Entity\Movie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-
+use App\Form\SearchMoviesType;
 /**
  * @method Movie|null find($id, $lockMode = null, $lockVersion = null)
  * @method Movie|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,6 +18,8 @@ class MovieRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Movie::class);
     }
+
+
 
     // /**
     //  * @return Movie[] Returns an array of Movie objects
@@ -36,36 +38,41 @@ class MovieRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Movie
+   /**
+ * Recherch les video en fonction du formulaire
+ * @return void
+ */
+    public function search($name)
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $this->createQueryBuilder('m');
+        $query->where('m.active = 1');
+        if($name == null){
+            $query->andWhere('MATCH_AGAINST(m.name, m.description)AGAINST (:name boolean)>0')
+            ->setParameter('name', $name);
+        }
+        return $query->getQuery()->getResult();
+            
     }
-    */
+   
 
-      // Find/search movies by title/content
-      public function findMoviesByName(string $name)
-      {
-          $qb = $this->createQueryBuilder('p');
-          $qb
-              ->where(
-                  $qb->expr()->andX(
-                      $qb->expr()->orX(
-                          $qb->expr()->like('p.title', ':name'),
-                          $qb->expr()->like('p.content', ':name'),
-                      ),
-                      $qb->expr()->isNotNull('p.created_at')
-                  )
-              )
-              ->setParameter(':name', '%' . $name . '%')
-          ;
-          return $qb
-              ->getQuery()
-              ->getResult();
-      }
+    //   // Find/search movies by title/content
+    //   public function findMoviesByName(string $name)
+    //   {
+    //       $qb = $this->createQueryBuilder('p');
+    //       $qb
+    //           ->where(
+    //               $qb->expr()->andX(
+    //                   $qb->expr()->orX(
+    //                       $qb->expr()->like('p.title', ':name'),
+    //                       $qb->expr()->like('p.content', ':name'),
+    //                   ),
+    //                   $qb->expr()->isNotNull('p.created_at')
+    //               )
+    //           )
+    //           ->setParameter(':name', '%' . $name . '%')
+    //       ;
+    //       return $qb
+    //           ->getQuery()
+    //           ->getResult();
+    //   }
 }
