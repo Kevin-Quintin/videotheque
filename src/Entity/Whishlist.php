@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\WhishlistRepository;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**

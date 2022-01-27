@@ -60,7 +60,12 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('codePostal', TextType::class)
             ->add('city', TextType::class)
-            ->add('dateBirth', DateType::class);
+            ->add('dateBirth', DateType::class, array(
+                'widget' => 'choice',
+                'years' => range(date('Y'), date('Y') - 50),
+                'months' => range(date('m'), 12),
+
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void
