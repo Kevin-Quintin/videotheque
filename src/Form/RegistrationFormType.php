@@ -26,7 +26,7 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class, [
                 'constraints' => [
                     new Regex([
-                        'pattern' => "/^[a-zA-Z-' ]*$/",
+                        'pattern' => "/^[a-zA-Z-']*$/",
                         'match' => false,
                         'message' => 'Votre prénom ne peut pas contenir de caractères spéciaux'
                     ])
@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class, [
                 'constraints' => [
                     new Regex([
-                        'pattern' => "/^[a-zA-Z-' ]*$/",
+                        'pattern' => "/^[a-zA-Z-']*$/",
                         'match' => false,
                         'message' => 'Votre nom ne peut pas contenir de caractères spéciaux'
                     ])
